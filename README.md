@@ -12,7 +12,7 @@ which are usually full of advertisements and background services and sometimes c
 + Python 3.8.5
 + Pillow >= 7.2.0
 
-#### Pillow with *pip*
+#### Install Pillow with *pip*
 
 ```bash
 pip3 install Pillow
