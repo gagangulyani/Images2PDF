@@ -65,7 +65,7 @@ img_list = []
 IMG_EXTENSIONS = ["jpg", "jpeg", "png", "bmp", "ico"]
 
 for image in path.iterdir():
-    # Select only JPG files
+    # Select only Image Files
     if image.suffix[1:] in IMG_EXTENSIONS:
         img_list.append(image)
 
