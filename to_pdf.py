@@ -16,6 +16,27 @@ from PIL import Image
 from pathlib import Path
 from sys import argv
 
+def to_rgb(img):
+  """This function converts and Returns Image Objects with RGBA to RGB
+  It does not change the size (width and height) of the Image Object
+
+  Args:
+      img (Image Object): With RGBA or RGB channel
+
+  Returns:
+      Image Object: With RGB channels only
+  """
+
+  
+  # If Image does not have Alha Channel
+  if len(img.split()) != 4:
+    # Return it without doing anything
+    return img
+  
+  # Create New Image Object with White BG
+  im = Image.new('RGB', img.size, (255,255,255))
+  im.paste(img, mask = img.split()[3])
+  return im
 
 if len(argv) != 3:
   print('[ERROR] Invalid number of arguments given')
@@ -30,21 +51,22 @@ path = Path(argv[1])
 pdf_filename = f'{argv[2]}'
 
 img_list = []
+IMG_EXTENSIONS = ["jpg", "jpeg", "png", "bmp", "ico"]
 
 for image in path.iterdir():
   # Select only JPG files
-  if 'jpg' == image.suffix[1:]:
+  if image.suffix[1:] in IMG_EXTENSIONS:
     img_list.append(image)
 
 # if img_list is empty, exit
 if not img_list:
     print('[ERROR] Images not found! Please Make sure the specified path contains Images')
     exit(1)
-    
+
 img_list.sort(key = lambda x: x.name)
 
 # Replacing Path objects with Image objects
-img_list = [Image.open(im.absolute()) for im in img_list]
+img_list = [to_rgb(Image.open(im.absolute())) for im in img_list]
 
 # Save First Image as PDF with All Other Images Appended to it
 img_list[0].save(pdf_filename, "PDF", resolution=100.0, save_all = True, append_images=img_list[1:])
