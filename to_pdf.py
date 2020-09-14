@@ -1,12 +1,13 @@
 """
 Name: Images2PDF
 
-Description: This Python script Creates PDF file from List of Images using Pillow
+Description:
 
-===
-Reference: Create PDF from a list of images
-Link: https://stackoverflow.com/questions/27327513/create-pdf-from-a-list-of-images
-===
+This Python script Creates PDF file from List of Images using Pillow.
+This script can come very handy if you have a lot of images and you want
+to add them to a PDF file without using other apps which are usually full
+of advertisements and background services and sometimes can be malicious or
+spywares.
 
 Author: @GaganGulyani
 """
