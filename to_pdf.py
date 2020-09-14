@@ -38,7 +38,7 @@ for image in path.iterdir():
 
 # if img_list is empty, exit
 if not img_list:
-    print('Images not found! Please Make sure the specified path contains Images')
+    print('[ERROR] Images not found! Please Make sure the specified path contains Images')
     exit(1)
     
 img_list.sort(key = lambda x: x.name)
