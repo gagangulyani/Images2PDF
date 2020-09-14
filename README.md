@@ -29,6 +29,7 @@ python3 to_script.py <path_to_images> <destination_path>
 python3 to_script.py ~/Pictures Output.pdf
 ```
 
-### Reference
+### References
 
 [Create PDF from a list of images](https://stackoverflow.com/questions/27327513/create-pdf-from-a-list-of-images)
+[Convert RGBA PNG to RGB with PIL](https://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil)
